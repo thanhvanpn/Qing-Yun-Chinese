@@ -120,7 +120,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* BREADCRUMB / TIÊU ĐỀ TRANG CON */
+    /* TIÊU ĐỀ TRANG CON */
     .page-header {
       background: white;
       border: 1px solid var(--border);
@@ -183,7 +183,7 @@
       color: var(--primary);
     }
 
-    /* LIST DẦY ĐẶN */
+    /* DETAIL LIST */
     .detail-list {
       list-style-type: none;
       font-size: 0.88rem;
@@ -225,7 +225,7 @@
     }
     .custom-table tr:hover { background-color: #fafdfa; }
 
-    /* FORM LIÊN HỆ & TỔNG QUAN */
+    /* FORM LIÊN HỆ */
     .form-container {
       background: white;
       border: 2px solid #a5d6a7;
@@ -299,6 +299,11 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     }
     .float-btn.phone { background: #d32f2f; }
+
+    @media (max-width: 850px) {
+      .nav-tabs { display: none; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -670,59 +675,54 @@
   <footer>
     <div class="footer-wrap">
       <div class="footer-col">
-        <h4>QUING YUN CHINESE</h4>
+        <h4>QING YUN CHINESE</h4>
         <p>Trung tâm Đào tạo Tiếng Trung Thực chiến & Luyện thi Online qua Zoom.</p>
         <p style="margin-top: 8px;"><strong>Hotline / Zalo:</strong> 0353048990</p>
-        <p><strong>Địa chỉ website:</strong> quingyunchinese</p>
+        <p><strong>Địa chỉ website:</strong> qingyunchinese</p>
       </div>
       <div class="footer-col">
         <h4>Lộ Trình Đào Tạo</h4>
-        <p>Luyện thi HSK 1 – HSK 5 Quốc Tế[cite: 2]</p>
-        <p>Giao tiếp Thương mại & Đánh hàng Taobao[cite: 2]</p>
-        <p>Gói kèm 1:1 Phỏng vấn FDI Doanh Nghiệp[cite: 2]</p>
+        <p>Luyện thi HSK 1 – HSK 5 Quốc Tế</p>
+        <p>Giao tiếp Thương mại & Đánh hàng Taobao</p>
+        <p>Gói kèm 1:1 Phỏng vấn FDI Doanh Nghiệp</p>
       </div>
       <div class="footer-col">
         <h4>Mô Hình Quy Mô Lớp</h4>
-        <p>Lớp Tiêu chuẩn (8–12 học viên)[cite: 2]</p>
-        <p>Lớp Nhóm nhỏ tương tác (4–6 học viên)[cite: 2]</p>
-        <p>Trợ giảng nắn phát âm 1:1 qua voice note[cite: 2, 5]</p>
+        <p>Lớp Tiêu chuẩn (8–12 học viên)</p>
+        <p>Lớp Nhóm nhỏ tương tác (4–6 học viên)</p>
+        <p>Trợ giảng nắn phát âm 1:1 qua voice note</p>
       </div>
       <div class="footer-col">
         <h4>Học Liệu Tài Trợ 0Đ</h4>
-        <p>Giáo trình in màu bọc màng chống nước[cite: 4]</p>
-        <p>Vở Mễ tự cách luyện viết chữ Hán[cite: 4]</p>
-        <p>Flashcard số hóa Quizlet / Anki trọn đời[cite: 4]</p>
+        <p>Giáo trình in màu bọc màng chống nước</p>
+        <p>Vở Mễ tự cách luyện viết chữ Hán</p>
+        <p>Flashcard số hóa Quizlet / Anki trọn đời</p>
       </div>
     </div>
     <div style="text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px solid #233827; font-size: 0.8rem;">
-      &copy; 2026 Quing Yun Chinese. Đề án Khởi nghiệp Sáng tạo. All rights reserved.
+      &copy; 2026 Qing Yun Chinese. Đề án Khởi nghiệp Sáng tạo. All rights reserved.
     </div>
   </footer>
 
-  <!-- JAVASCRIPT ĐIỀU HƯỚNG CHUYỂN TRANG MƯỢT MÀ -->
+  <!-- SCRIPT CHUYỂN TRANG MƯỢT MÀ -->
   <script>
     function switchPage(pageId) {
-      // Ẩn toàn bộ các trang con
       const pages = document.querySelectorAll('.tab-page');
       pages.forEach(p => p.classList.remove('active-page'));
 
-      // Bỏ trạng thái active trên các nút menu
       const buttons = document.querySelectorAll('.nav-tab-btn');
       buttons.forEach(b => b.classList.remove('active'));
 
-      // Kích hoạt hiển thị trang được chọn
       const targetPage = document.getElementById('page-' + pageId);
       if (targetPage) {
         targetPage.classList.add('active-page');
       }
 
-      // Đánh dấu active cho nút vừa bấm
       const activeBtn = Array.from(buttons).find(b => b.getAttribute('onclick').includes(pageId));
       if (activeBtn) {
         activeBtn.classList.add('active');
       }
 
-      // Cuộn nhẹ lên đầu trang con
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -730,7 +730,7 @@
       e.preventDefault();
       const name = document.getElementById('reg-name').value;
       const phone = document.getElementById('reg-phone').value;
-      alert('Đăng ký thành công!\nCảm ơn bạn ' + name + ' (' + phone + '). Trợ giảng của Quing Yun Chinese sẽ liên hệ hỗ trợ gửi link lớp học thử Zoom trong vòng 15 phút.');
+      alert('Đăng ký thành công!\nCảm ơn bạn ' + name + ' (' + phone + '). Trợ giảng của Qing Yun Chinese sẽ liên hệ hỗ trợ gửi link lớp học thử Zoom trong vòng 15 phút.');
     }
   </script>
 
